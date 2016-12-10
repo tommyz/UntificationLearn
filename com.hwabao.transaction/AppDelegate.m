@@ -149,7 +149,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSDictionary *userInfo = content.userInfo;
     if ([notification isKindOfClass:[UNPushNotificationTrigger class]]) {
         NSLog(@"iOS10 收到远程通知:%@",userInfo);
-        //        [JPUSHService handleRemoteNotification:userInfo];
+        [JPUSHService handleRemoteNotification:userInfo];
     }else{
         NSLog(@"iOS10 收到本地通知:%@",[notification description]);
     }
@@ -164,11 +164,13 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
     NSLog(@"iOS10 收到远程通知:%@",[response description]);
     NSString * categoryIdentifier = response.notification.request.content.categoryIdentifier;
-    completionHandler();
     if ([response isKindOfClass:[UNTextInputNotificationResponse class]]) {
         UNTextInputNotificationResponse * textResponse = (UNTextInputNotificationResponse*)response;
         NSString * text = textResponse.userText;
         //do something
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:text preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
     }
     else{
         if ([response.actionIdentifier isEqualToString:@"see1"]) {
@@ -178,7 +180,12 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
             //I don't care~😳
             [[UNUserNotificationCenter currentNotificationCenter] removeDeliveredNotificationsWithIdentifiers:@[response.notification.request.identifier]];
         }
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:response.notification.request.content.body preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
     }
+    completionHandler();
 }
 
 @end

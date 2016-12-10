@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7679E1071DFBE20C00E378B1 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54C97F31DFA8362002F3F8F /* UserNotifications.framework */; };
+		7679E1081DFBE20C00E378B1 /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B54C97F51DFA8367002F3F8F /* UserNotificationsUI.framework */; };
+		7679E10C1DFBE20C00E378B1 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7679E10B1DFBE20C00E378B1 /* NotificationViewController.m */; };
+		7679E10F1DFBE20C00E378B1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7679E10D1DFBE20C00E378B1 /* MainInterface.storyboard */; };
+		7679E1131DFBE20C00E378B1 /* NcExtensionUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7679E1061DFBE20C00E378B1 /* NcExtensionUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7679E11A1DFBEFEE00E378B1 /* assembly.png in Resources */ = {isa = PBXBuildFile; fileRef = 7679E1191DFBEFEE00E378B1 /* assembly.png */; };
 		B54C97B91DFA7F89002F3F8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B54C97B81DFA7F89002F3F8F /* main.m */; };
 		B54C97BC1DFA7F89002F3F8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B54C97BB1DFA7F89002F3F8F /* AppDelegate.m */; };
 		B54C97BF1DFA7F89002F3F8F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B54C97BE1DFA7F89002F3F8F /* ViewController.m */; };
@@ -36,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7679E1111DFBE20C00E378B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B54C97AC1DFA7F89002F3F8F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7679E1051DFBE20C00E378B1;
+			remoteInfo = NcExtensionUI;
+		};
 		B54C97CE1DFA7F89002F3F8F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B54C97AC1DFA7F89002F3F8F /* Project object */;
@@ -67,6 +80,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				B54C981A1DFAB96B002F3F8F /* NcServiceExtension.appex in Embed App Extensions */,
+				7679E1131DFBE20C00E378B1 /* NcExtensionUI.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +88,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7679E1011DFBD0B200E378B1 /* NcServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NcServiceExtension.entitlements; sourceTree = "<group>"; };
+		7679E1061DFBE20C00E378B1 /* NcExtensionUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NcExtensionUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7679E10A1DFBE20C00E378B1 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		7679E10B1DFBE20C00E378B1 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		7679E10E1DFBE20C00E378B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7679E1101DFBE20C00E378B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7679E1191DFBEFEE00E378B1 /* assembly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assembly.png; sourceTree = "<group>"; };
 		B54C97B41DFA7F89002F3F8F /* fly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54C97B81DFA7F89002F3F8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B54C97BA1DFA7F89002F3F8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +136,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7679E1031DFBE20C00E378B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7679E1081DFBE20C00E378B1 /* UserNotificationsUI.framework in Frameworks */,
+				7679E1071DFBE20C00E378B1 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C97B11DFA7F89002F3F8F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,6 +190,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7679E1091DFBE20C00E378B1 /* NcExtensionUI */ = {
+			isa = PBXGroup;
+			children = (
+				7679E1191DFBEFEE00E378B1 /* assembly.png */,
+				7679E10A1DFBE20C00E378B1 /* NotificationViewController.h */,
+				7679E10B1DFBE20C00E378B1 /* NotificationViewController.m */,
+				7679E10D1DFBE20C00E378B1 /* MainInterface.storyboard */,
+				7679E1101DFBE20C00E378B1 /* Info.plist */,
+			);
+			path = NcExtensionUI;
+			sourceTree = "<group>";
+		};
 		B54C97AB1DFA7F89002F3F8F = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +209,7 @@
 				B54C97D01DFA7F89002F3F8F /* com.hwabao.transactionTests */,
 				B54C97DB1DFA7F89002F3F8F /* com.hwabao.transactionUITests */,
 				B54C98131DFAB96B002F3F8F /* NcServiceExtension */,
+				7679E1091DFBE20C00E378B1 /* NcExtensionUI */,
 				B54C97B51DFA7F89002F3F8F /* Products */,
 				B54C97F01DFA835C002F3F8F /* Frameworks */,
 			);
@@ -179,6 +222,7 @@
 				B54C97CD1DFA7F89002F3F8F /* com.hwabao.transactionTests.xctest */,
 				B54C97D81DFA7F89002F3F8F /* com.hwabao.transactionUITests.xctest */,
 				B54C98121DFAB96B002F3F8F /* NcServiceExtension.appex */,
+				7679E1061DFBE20C00E378B1 /* NcExtensionUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -261,6 +305,7 @@
 		B54C98131DFAB96B002F3F8F /* NcServiceExtension */ = {
 			isa = PBXGroup;
 			children = (
+				7679E1011DFBD0B200E378B1 /* NcServiceExtension.entitlements */,
 				B54C98141DFAB96B002F3F8F /* NotificationService.h */,
 				B54C98151DFAB96B002F3F8F /* NotificationService.m */,
 				B54C98171DFAB96B002F3F8F /* Info.plist */,
@@ -271,6 +316,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7679E1051DFBE20C00E378B1 /* NcExtensionUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7679E1141DFBE20C00E378B1 /* Build configuration list for PBXNativeTarget "NcExtensionUI" */;
+			buildPhases = (
+				7679E1021DFBE20C00E378B1 /* Sources */,
+				7679E1031DFBE20C00E378B1 /* Frameworks */,
+				7679E1041DFBE20C00E378B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NcExtensionUI;
+			productName = NcExtensionUI;
+			productReference = 7679E1061DFBE20C00E378B1 /* NcExtensionUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		B54C97B31DFA7F89002F3F8F /* com.hwabao.transaction */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B54C97E11DFA7F89002F3F8F /* Build configuration list for PBXNativeTarget "com.hwabao.transaction" */;
@@ -284,6 +346,7 @@
 			);
 			dependencies = (
 				B54C98191DFAB96B002F3F8F /* PBXTargetDependency */,
+				7679E1121DFBE20C00E378B1 /* PBXTargetDependency */,
 			);
 			name = com.hwabao.transaction;
 			productName = com.hwabao.transaction;
@@ -352,6 +415,11 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ToukerApp;
 				TargetAttributes = {
+					7679E1051DFBE20C00E378B1 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = QG479838Q3;
+						ProvisioningStyle = Automatic;
+					};
 					B54C97B31DFA7F89002F3F8F = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = QG479838Q3;
@@ -378,6 +446,11 @@
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = QG479838Q3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -398,11 +471,21 @@
 				B54C97CC1DFA7F89002F3F8F /* com.hwabao.transactionTests */,
 				B54C97D71DFA7F89002F3F8F /* com.hwabao.transactionUITests */,
 				B54C98111DFAB96B002F3F8F /* NcServiceExtension */,
+				7679E1051DFBE20C00E378B1 /* NcExtensionUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7679E1041DFBE20C00E378B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7679E10F1DFBE20C00E378B1 /* MainInterface.storyboard in Resources */,
+				7679E11A1DFBEFEE00E378B1 /* assembly.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C97B21DFA7F89002F3F8F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,6 +522,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7679E1021DFBE20C00E378B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7679E10C1DFBE20C00E378B1 /* NotificationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B54C97B01DFA7F89002F3F8F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -476,6 +567,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7679E1121DFBE20C00E378B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7679E1051DFBE20C00E378B1 /* NcExtensionUI */;
+			targetProxy = 7679E1111DFBE20C00E378B1 /* PBXContainerItemProxy */;
+		};
 		B54C97CF1DFA7F89002F3F8F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B54C97B31DFA7F89002F3F8F /* com.hwabao.transaction */;
@@ -494,6 +590,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7679E10D1DFBE20C00E378B1 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7679E10E1DFBE20C00E378B1 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		B54C97C01DFA7F89002F3F8F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -513,6 +617,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7679E1151DFBE20C00E378B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QG479838Q3;
+				INFOPLIST_FILE = NcExtensionUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction.NcExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7679E1161DFBE20C00E378B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = QG479838Q3;
+				INFOPLIST_FILE = NcExtensionUI/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction.NcExtensionUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		B54C97DF1DFA7F89002F3F8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -613,7 +741,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.hwabao.transaction/JPush_2.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.com-hwabao-transaction";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction;
 				PRODUCT_NAME = fly;
 			};
 			name = Debug;
@@ -630,7 +758,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.hwabao.transaction/JPush_2.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.com-hwabao-transaction";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction;
 				PRODUCT_NAME = fly;
 			};
 			name = Release;
@@ -688,10 +816,11 @@
 		B54C981C1DFAB96B002F3F8F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NcServiceExtension/NcServiceExtension.entitlements;
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.com-hwabao-transaction.NcServiceExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction.NcServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -700,10 +829,11 @@
 		B54C981D1DFAB96B002F3F8F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NcServiceExtension/NcServiceExtension.entitlements;
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.com-hwabao-transaction.NcServiceExtension";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.transaction.NcServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -712,6 +842,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7679E1141DFBE20C00E378B1 /* Build configuration list for PBXNativeTarget "NcExtensionUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7679E1151DFBE20C00E378B1 /* Debug */,
+				7679E1161DFBE20C00E378B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B54C97AF1DFA7F89002F3F8F /* Build configuration list for PBXProject "com.hwabao.transaction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -728,6 +866,7 @@
 				B54C97E31DFA7F89002F3F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B54C97E41DFA7F89002F3F8F /* Build configuration list for PBXNativeTarget "com.hwabao.transactionTests" */ = {
 			isa = XCConfigurationList;
@@ -736,6 +875,7 @@
 				B54C97E61DFA7F89002F3F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B54C97E71DFA7F89002F3F8F /* Build configuration list for PBXNativeTarget "com.hwabao.transactionUITests" */ = {
 			isa = XCConfigurationList;
@@ -744,6 +884,7 @@
 				B54C97E91DFA7F89002F3F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B54C981B1DFAB96B002F3F8F /* Build configuration list for PBXNativeTarget "NcServiceExtension" */ = {
 			isa = XCConfigurationList;
@@ -752,6 +893,7 @@
 				B54C981D1DFAB96B002F3F8F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
