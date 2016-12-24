@@ -8,8 +8,7 @@
 
 #import "AppDelegate.h"
 #import <UserNotifications/UserNotifications.h>
-#import "JPUSHService.h"
-@interface AppDelegate ()<UNUserNotificationCenterDelegate,JPUSHRegisterDelegate>
+@interface AppDelegate ()<UNUserNotificationCenterDelegate,UNUserNotificationCenterDelegate>
 
 @end
 
@@ -36,16 +35,6 @@
             //do other things
         }
     }];
-    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
-    entity.types = UNAuthorizationOptionAlert|UNAuthorizationOptionBadge|UNAuthorizationOptionSound;
-    NSSet *categoryActions = [self createNotificationCategoryActions];
-    if (categoryActions) {
-        [entity setCategories:categoryActions];
-    }
-    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
-    [JPUSHService setupWithOption:launchOptions appKey:@"6284950bd8c6dbc1471c7fd2"
-                          channel:@"iOS"
-                 apsForProduction:NO];
     return YES;
 }
 -(NSSet *)createNotificationCategoryActions{
@@ -62,14 +51,13 @@
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     //上传token
-    [JPUSHService registerDeviceToken:deviceToken];
-
+    NSString *strDeviceToken = [[[[deviceToken description] stringByReplacingOccurrencesOfString: @"<" withString: @""]                  stringByReplacingOccurrencesOfString: @">" withString: @""] stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"方式2：%@", strDeviceToken);
 }
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;{
-    [JPUSHService handleRemoteNotification:userInfo];
+    
 }
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    [JPUSHService handleRemoteNotification:userInfo];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 - (void)application:(UIApplication *)application
@@ -87,9 +75,13 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSNumber *badge = content.badge;  // 角标
     NSString *body = content.body;    // 推送消息体
     UNNotificationSound *sound = content.sound;  // 指定的声音
-    
     //建议将根据Notification进行处理的逻辑统一封装，后期可在Extension中复用~
-    
+    if ([notification isKindOfClass:[UNPushNotificationTrigger class]]) {
+        NSLog(@"iOS10 收到远程通知:%@",userInfo);
+    }else{
+        NSLog(@"iOS10 收到本地通知:%@",[notification description]);
+    }
+    completionHandler(UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionAlert);
 }
 
 //用户与通知进行交互后的response，比如说用户直接点开通知打开App、用户点击通知的按钮或者进行输入文本框的文本
@@ -105,13 +97,28 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     UNNotificationSound *sound = content.sound;
     //在此，可判断response的种类和request的触发器是什么，可根据远程通知和本地通知分别处理，再根据action进行后续回调
     //可根据actionIdentifier来做业务逻辑
-    if ([response.actionIdentifier isEqualToString:@""]) {
-        
-    }
-    //也可根据response 判断是否是text文本输入
     if ([response isKindOfClass:[UNTextInputNotificationResponse class]]) {
-        
+        UNTextInputNotificationResponse * textResponse = (UNTextInputNotificationResponse*)response;
+        NSString * text = textResponse.userText;
+        //do something
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:text preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
     }
+    else{
+        if ([response.actionIdentifier isEqualToString:@"see1"]) {
+            //I love it~😘的处理
+        }
+        if ([response.actionIdentifier isEqualToString:@"see2"]) {
+            //I don't care~😳
+            [[UNUserNotificationCenter currentNotificationCenter] removeDeliveredNotificationsWithIdentifiers:@[response.notification.request.identifier]];
+        }
+        
+        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:response.notification.request.content.body preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    }
+    completionHandler();
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -139,53 +146,6 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger options))completionHandler{
-    
-    //收到推送的请求
-    UNNotificationRequest *request = notification.request;
-    //收到推送的内容
-    UNNotificationContent *content = request.content;
-    //收到用户的基本信息
-    NSDictionary *userInfo = content.userInfo;
-    if ([notification isKindOfClass:[UNPushNotificationTrigger class]]) {
-        NSLog(@"iOS10 收到远程通知:%@",userInfo);
-        [JPUSHService handleRemoteNotification:userInfo];
-    }else{
-        NSLog(@"iOS10 收到本地通知:%@",[notification description]);
-    }
-    completionHandler(UNAuthorizationOptionBadge|UNAuthorizationOptionSound|UNAuthorizationOptionAlert);
-}
-/*
- * @brief handle UserNotifications.framework [didReceiveNotificationResponse:withCompletionHandler:]
- * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
- * @param response 通知响应对象
- * @param completionHandler
- */
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
-    NSLog(@"iOS10 收到远程通知:%@",[response description]);
-    NSString * categoryIdentifier = response.notification.request.content.categoryIdentifier;
-    if ([response isKindOfClass:[UNTextInputNotificationResponse class]]) {
-        UNTextInputNotificationResponse * textResponse = (UNTextInputNotificationResponse*)response;
-        NSString * text = textResponse.userText;
-        //do something
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:text preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
-    }
-    else{
-        if ([response.actionIdentifier isEqualToString:@"see1"]) {
-            //I love it~😘的处理
-        }
-        if ([response.actionIdentifier isEqualToString:@"see2"]) {
-            //I don't care~😳
-            [[UNUserNotificationCenter currentNotificationCenter] removeDeliveredNotificationsWithIdentifiers:@[response.notification.request.identifier]];
-        }
-        
-        UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"文本框输入" message:response.notification.request.content.body preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
-    }
-    completionHandler();
-}
+
 
 @end

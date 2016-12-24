@@ -21,7 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.preferredContentSize
     // Do any required interface initialization here.
 }
 
