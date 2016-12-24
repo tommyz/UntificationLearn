@@ -613,7 +613,7 @@
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcExtensionUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly.NcExtensionUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly.NcExtensionUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -626,7 +626,7 @@
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcExtensionUI/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly.NcExtensionUI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly.NcExtensionUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -733,7 +733,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.hwabao.transaction/JPush_2.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly;
 				PRODUCT_NAME = fly;
 				PROVISIONING_PROFILE = "cd3c2780-bfc0-4084-8b11-daabeef6a746";
 				PROVISIONING_PROFILE_SPECIFIER = fly;
@@ -753,7 +753,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/com.hwabao.transaction/JPush_2.2",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly;
 				PRODUCT_NAME = fly;
 			};
 			name = Release;
@@ -816,7 +816,7 @@
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly.NcServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly.NcServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -830,7 +830,7 @@
 				DEVELOPMENT_TEAM = QG479838Q3;
 				INFOPLIST_FILE = NcServiceExtension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hwabao.fly.NcServiceExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xxx.fly.NcServiceExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
